@@ -1,0 +1,1 @@
+export enum discountOffer  {offer = 'noDiscount' , bigDiscount = '50%', smallDiscount = '20%'}
