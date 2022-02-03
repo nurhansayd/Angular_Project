@@ -1,1 +1,1 @@
-export enum discountOffer  {offer = 'noDiscount' , bigDiscount = '50%', smallDiscount = '20%'}
+export enum discountOffer  {offer , bigDiscount = 0.5, smallDiscount = 0.25}

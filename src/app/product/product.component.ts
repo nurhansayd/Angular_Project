@@ -22,21 +22,42 @@ export class ProductComponent implements OnInit {
     this.productList = [{
       id:1,
       name:"HP",
+      quantity:2,
+      price:15500,
+      image:'./assets/camera.jpeg'
+    } , {
+      id:2,
+      name:"dell",
       quantity:25,
+      price:20000,
+      image:'./assets/camera.jpeg'
+    },{
+      id:3,
+      name:"mac",
+      quantity:4,
       price:30000,
       image:'./assets/camera.jpeg'
     }];
     this.categoryList =[{
     id: 6,
-      name :"laptops"
+    name :"laptops"
+    }, {
+      id: 6,
+      name :"mobile"
+    } ,{
+      id: 6,
+      name :"tv"
     }];
     this.storeName= "jumia";
     this.storeLogo="jumia";
     this.clientName="Nurhan";
-    this.IsPurshased=true;
+    this.IsPurshased=false;
    }
 
-
+   update(){
+    this.IsPurshased=!this.IsPurshased
+   }
+    
 
  
   
