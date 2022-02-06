@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+
+import { ProductServiceService } from '../Services/product-service.service';
 import { discountOffer } from '../sharedClassesTypes/enum';
 import { ICategory, IProduct } from '../sharedClassesTypes/interface';
 
@@ -9,6 +11,8 @@ import { ICategory, IProduct } from '../sharedClassesTypes/interface';
 })
 export class ProductComponent implements OnInit {
 
+ 
+
   discount: discountOffer;
   storeName:string;
   storeLogo:string;
@@ -16,7 +20,8 @@ export class ProductComponent implements OnInit {
   categoryList:ICategory[];
   clientName:string;
   IsPurshased: Boolean
-  constructor() {
+  
+  constructor(private productService:ProductServiceService) {
     this.discount = discountOffer.offer;
 
     this.productList = [{
@@ -52,16 +57,26 @@ export class ProductComponent implements OnInit {
     this.storeLogo="jumia";
     this.clientName="Nurhan";
     this.IsPurshased=false;
+    
    }
+   ngOnInit(): void {
+    
+  }
 
    update(){
     this.IsPurshased=!this.IsPurshased
    }
     
-
+   
+   
+    renderValues(){
+      this.productService.getAllProducts()
+     }
+   
  
   
-  ngOnInit(): void {
-  }
+ 
+
+ 
 
 }
