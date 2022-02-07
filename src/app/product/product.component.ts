@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
   clientName:string;
   IsPurshased: Boolean
   
+  errorMsg:any;
   constructor(private productService:ProductServiceService) {
     this.discount = discountOffer.offer;
 
@@ -60,6 +61,16 @@ export class ProductComponent implements OnInit {
     
    }
    ngOnInit(): void {
+    // this.productService.getAllProducts().subscribe(
+      // productData=>{
+        // this.productList= productData
+       //},
+       //error =>{
+         //this.errorMsg= error;
+      // }
+     
+       
+    // )
     
   }
 
@@ -70,13 +81,8 @@ export class ProductComponent implements OnInit {
    
    
     renderValues(){
-      this.productService.getAllProducts()
+     return this.productService.getAllProducts()
      }
    
- 
-  
- 
-
- 
 
 }

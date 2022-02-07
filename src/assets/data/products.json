@@ -1,0 +1,19 @@
+[{
+    "id":"1",
+    "name":"HP",
+    "quantity":"2",
+    "price":"15500",
+    "image":"'./assets/camera.jpeg'"
+  } , {
+    "id":2,
+    "name":"dell",
+    "quantity":25,
+    "price":20000,
+    "image":"'./assets/camera.jpeg'"
+  },{
+    "id":"3",
+    "name":"mac",
+    "quantity":"4",
+    "price":"30000",
+    "image":"'./assets/camera.jpeg'"
+  }]

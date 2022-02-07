@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { ProductComponent } from './product/product.component';
+import { IProduct } from './sharedClassesTypes/interface';
 //import { ProductServiceService } from './Services/product-service.service';
 
 
@@ -12,11 +13,21 @@ import { ProductComponent } from './product/product.component';
 })
 
 export class AppComponent {
-  
+  products:IProduct[]
+  thenTable:boolean
   @ViewChild(ProductComponent) child :ProductComponent
   title = 'Angular_Project';
 
   render(){
-    this.child.renderValues()
+    
+    this.products = this.child.renderValues()
+    this.thenTable=true
+    console.log(this.child.renderValues());
+    
+  }
+  hide(){
+    this.thenTable = false
   }
 }
+
+
