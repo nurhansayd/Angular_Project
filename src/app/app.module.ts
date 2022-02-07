@@ -9,7 +9,8 @@ import { ProductComponent } from './product/product.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
-import { PostComponent } from './post/post.component'
+import { PostComponent } from './post/post.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PostComponent } from './post/post.component'
     HomeComponent,
     UserComponent,
     PostComponent,
+    PageNotFoundComponent,
 
   ],
   imports: [
