@@ -1,4 +1,8 @@
 
+<button (click) ="Discount()" class="btn btn-primary">product with discount</button>
+<button (click)="noDiscount()" class="btn btn-primary">product without discount</button>
+
+<router-outlet></router-outlet>
 <h1>Store Name is : {{storeName}}</h1>
 
 <div *ngIf = "discount ;then thenBlock"></div>

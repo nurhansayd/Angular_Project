@@ -1,4 +1,5 @@
 import { Component,OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProductServiceService } from '../Services/product-service.service';
 import { discountOffer } from '../sharedClassesTypes/enum';
@@ -22,7 +23,7 @@ export class ProductComponent implements OnInit {
   IsPurshased: Boolean
   
   errorMsg:any;
-  constructor(private productService:ProductServiceService) {
+  constructor(private productService:ProductServiceService, private router:Router, private route:ActivatedRoute) {
     this.discount = discountOffer.offer;
 
     this.productList = [{
@@ -84,5 +85,12 @@ export class ProductComponent implements OnInit {
      return this.productService.getAllProducts()
      }
    
+     Discount(){
+      this.router.navigate(['discount'], {relativeTo:this.route})
+     }
+
+     noDiscount(){
+       this.router.navigate(['nodiscount'], {relativeTo:this.route})
+     }
 
 }

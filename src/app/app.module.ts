@@ -10,7 +10,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { PostComponent } from './post/post.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductWithDiscountComponent } from './product/product-with-discount/product-with-discount.component';
+import { ProductWithoutDiscountComponent } from './product/product-without-discount/product-without-discount.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component'
 
 @NgModule({
   declarations: [
@@ -22,6 +26,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     UserComponent,
     PostComponent,
     PageNotFoundComponent,
+    ProductWithDiscountComponent,
+    ProductWithoutDiscountComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
