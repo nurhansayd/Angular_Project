@@ -29,16 +29,16 @@ export class ProductServiceService {
 }];
 
   constructor(private Http :HttpClient) {}
-  _url:string="/assets/data/pro"
+  _url:string="/assets/data/products.json"
   
   //observable
-  getAllProducts(){
-    return this.products; //non-observable
+  getAllProducts():Observable<IProduct[]>{
+    //return this.products; //non-observable - lab3
    
-   //return this.Http.get<IProduct[]>(this._url).pipe(catchError((err)=>{
-
-    //return throwError(()=>err.message|| "server error")
-   //}))
+   return this.Http.get<IProduct[]>(this._url).pipe(catchError((err)=>
+   {
+    return throwError(()=>err.message|| "server error")
+   }))
   }
 
 

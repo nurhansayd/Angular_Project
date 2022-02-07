@@ -61,16 +61,16 @@ export class ProductComponent implements OnInit {
     
    }
    ngOnInit(): void {
-    // this.productService.getAllProducts().subscribe(
-      // productData=>{
-        // this.productList= productData
-       //},
-       //error =>{
-         //this.errorMsg= error;
-      // }
+     this.productService.getAllProducts().subscribe(
+       productData=>{
+         this.productList= productData
+       },
+       error =>{
+         this.errorMsg= error;
+       }
      
        
-    // )
+     )
     
   }
 

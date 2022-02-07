@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ProductComponent } from './product/product.component';
 import { IProduct } from './sharedClassesTypes/interface';
 //import { ProductServiceService } from './Services/product-service.service';
@@ -19,8 +20,10 @@ export class AppComponent {
   title = 'Angular_Project';
 
   render(){
-    
-    this.products = this.child.renderValues()
+  
+    this.child.renderValues().subscribe(result =>{
+      this.products = result
+    })
     this.thenTable=true
     console.log(this.child.renderValues());
     

@@ -1,0 +1,27 @@
+
+        <table style="border: 2px solid black;" *ngIf="postList?.length">
+            
+            <tr>
+                <td>ID</td>
+                <td>Title</td>
+                <td>Body</td>
+            </tr>
+           <tr *ngFor= "let post of postList" style="border: 2px solid black;" >
+               
+       
+               <td style="border: 2px solid black;">
+                   {{post.id}}
+               </td>
+             
+               <td style="border: 2px solid black;">
+                   {{post.title}}
+               </td>
+               <td style="border: 2px solid black;">
+                   {{post.body}}
+               </td>
+       
+              
+           </tr>
+       
+        </table>
+      
