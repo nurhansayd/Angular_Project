@@ -7,10 +7,13 @@ import { UserComponent } from './user/user.component';
 
 
 const routes: Routes = [
+  {path: '', redirectTo:'/Home', pathMatch:'full'},
   {path:'Home' , component: HomeComponent},
   {path:'Products' , component:ProductComponent},
   {path:'Users', component:UserComponent},
-  {path:'Posts', component:PostComponent}
+  {path:'Posts', component:PostComponent},
+  
+
  
 ];
 
