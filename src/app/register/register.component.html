@@ -9,14 +9,24 @@
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
   
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-  
-                  <form class="mx-1 mx-md-4">
-  
+                  <!-- form -->
+                  <form #userForm ="ngForm" novalidate (ngSubmit)="onSubmit()" class="mx-1 mx-md-4">
+                    {{userForm.value | json}} <!-- to work this you need to assign name for each control and typ ngModel-->
+                    <br>
+                    {{userModel | json}}
+
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+
                       <div class="form-outline flex-fill mb-0">
+
                         <label class="form-label" for="form3Example1c">Your Name</label>
-                        <input type="text" id="form3Example1c" class="form-control" />
+                        <input [(ngModel)]="userModel.name" ngModel required pattern="^[A-Za-z]*$"  [class.is-invalid]="name.invalid && name.touched " name="txtname" #name="ngModel" type="text" id="form3Example1c" class="form-control" />
+                        <div *ngIf ="name.errors">
+                          <small class="text-danger" *ngIf="name.errors['pattern']">Name must characters only</small>
+                          <small class="text-danger" *ngIf="name.errors['required']" [class.d-none]="name.valid || name.untouched">Name is required</small>
+                        </div>
+                        
                         
                       </div>
                     </div>
@@ -24,8 +34,14 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
+
                         <label class="form-label" for="form3Example3c">Your Email</label>
-                        <input type="email" id="form3Example3c" class="form-control" />
+                        <input [(ngModel)]="userModel.email" ngModel required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched" name="txtemail" #email="ngModel" type="email" id="form3Example3c" class="form-control" />
+                        <div *ngIf ="email.errors">
+                          <small class="text-danger" *ngIf="email.errors['pattern']">Email must contain @ & .</small>
+                          <small class="text-danger" *ngIf="email.errors['required']" [class.d-none]="email.valid || email.untouched">Email is required</small>
+                        </div>
+                        
                       
                       </div>
                     </div>
@@ -33,33 +49,38 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
+
                         <label class="form-label" for="form3Example4c">Password</label>
-                        <input type="password" id="form3Example4c" class="form-control" />
-                        
+                        <input [(ngModel)]="userModel.password" ngModel required  [class.is-invalid]="password.invalid && password.touched" name="txtpassword" #password="ngModel" type="password" id="form3Example4c" class="form-control" />
+                        <small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required</small>
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
+
                         <label class="form-label" for="form3Example4cd">Repeat your password</label>
-                        <input type="password" id="form3Example4cd" class="form-control" />
-                        
+                        <input [(ngModel)]="userModel.confirmPassword" ngModel required  [class.is-invalid]="confirmpassword.invalid && confirmpassword.touched" name="txtconfirmpassword"  #confirmpassword="ngModel" type="password" id="form3Example4cd" class="form-control" />
+                        <small class="text-danger" [class.d-none]="confirmpassword.valid || confirmpassword.untouched">Repeat password is required</small>
                       </div>
                     </div>
                     <label class="form-label" for="form3Example4cd">From where you know about us?</label>
                         <div class="form-group">
-                            <select class= "custom-select">
-                                <option selected> Facebook</option>
-                                <option *ngFor ="let site of sites">{{site}} </option>
-                                
 
+                            <select [(ngModel)]="userModel.site" ngModel required  [class.is-invalid]="site.invalid && site.touched" name="txtsite" #site="ngModel" class= "custom-select">
+                                <option selected >----please select option----</option>
+                                <option *ngFor ="let sitee of sites">{{sitee}} </option>
                             </select>
+                            
                         </div>
                     
   
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" class="btn btn-primary btn-lg">Register</button>
+                      <input type="submit" [disabled]="!userForm.form.valid" value="Submit Form" name="btn" class="btn btn-primary btn-lg"  >
+                      
+                        
+                    
                     </div>
   
                   </form>
