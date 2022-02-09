@@ -15,7 +15,7 @@ import { ProductWithDiscountComponent } from './product/product-with-discount/pr
 import { ProductWithoutDiscountComponent } from './product/product-without-discount/product-without-discount.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component'
-import { FormsModule } from '@angular/forms';
+import { AbstractControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
