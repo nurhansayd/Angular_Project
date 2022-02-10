@@ -1,0 +1,56 @@
+<form [formGroup]="registerationForm"  >
+
+    <div class="form-group">
+        <label class="form-label" for="form3Example1c">Your Name</label>
+        <input formControlName="username"  [class.is-invalid]="userName?.invalid && userName?.touched "  name="txtname"  type="text" id="form3Example1c" class="form-control" />
+        
+        <div *ngIf ="userName?.invalid && userName?.touched">
+          <small class="text-danger" *ngIf="userName?.errors?.['notValidName']" >{{userName?.errors?.['notValidName'].value}} is not valid</small>
+          <small class="text-danger" *ngIf="userName?.errors?.['required']">Name is required</small>
+        </div>
+          
+    </div>
+
+    
+        <label class="form-label" for="form3Example4cd">select product you want</label>
+        <div class="form-group">
+
+            <select   name="txtsite"  class= "custom-select">
+                <option selected >----please select option----</option>
+                <option *ngFor ="let product of products">{{product}} </option>
+            </select>
+            
+        </div>
+
+    
+
+    <div class="form-group">
+        <label class="form-label" for="form3Example4cd">Discount amount</label>
+        <input [class.is-invalid]="discount?.invalid && discount?.touched" type="text" class="form-control" formControlName="discount">
+        <small class="text-danger" [class.d-none]="discount?.valid || discount?.untouched">Discount amount is required</small>
+        <div *ngIf ="discount?.invalid && discount?.touched">
+            <small class="text-danger"  *ngIf="discount?.errors?.['notValidDiscount']" >{{discount?.errors?.['notValidDiscount'].value}} must be in percentage</small>
+          </div>
+    </div>
+
+    <div class="form-check">
+        <input (click)="setDiscount()" formControlName="checkDiscount" type="checkbox" class="form-check-input" id="discount">
+        <label for="discount" class="form-check-lable">has discount?</label>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputComment">comment</label>
+      <input    formControlName="comment" type="text" class="form-control" id="exampleInputComment" placeholder="Comment">
+    </div>
+
+
+    <div formArrayName="anotherComments" *ngFor="let comment of anotherComments?.controls; let i=index">
+        <label >{{"Another comment #"}} {{i+1}}</label>
+        <input type="text" [formControlName]="i" class="form-control" placeholder="Comment">
+    </div>
+    <button class="btn btn-success" (click)="addAnotherComments()">Add another comment</button>
+
+   <br>
+    <button  value="Submit Form" type="submit" class="btn btn-primary">Submit</button>
+    <br>
+  </form>

@@ -160,7 +160,7 @@
                       <input formControlName="password" [class.is-invalid]="Password?.invalid && Password?.touched "  name="txtpassword" type="password" id="form3Example4c" class="form-control" />
                       <div *ngIf ="Password?.invalid && Password?.touched">
                       <small class="text-danger" *ngIf="Password?.errors?.['required']">password is required</small>
-                      <small class="text-danger" *ngIf="Password?.errors?.['matching']">must be matched</small>
+  
                         </div>
                         
 
@@ -173,11 +173,10 @@
 
                       <label class="form-label" for="form3Example4cd">Repeat your password</label>
                       <input formControlName="confirmPassword" [class.is-invalid]="ConfirmPassword?.invalid && ConfirmPassword?.touched "  name="txtconfirmpassword"   type="password" id="form3Example4cd" class="form-control" />
-                      <div *ngIf ="ConfirmPassword?.invalid && ConfirmPassword?.touched">
-                        <small class="text-danger" *ngIf="ConfirmPassword?.errors?.['required']">password is required</small>
+                     
+                        <small class="text-danger" *ngIf="ConfirmPassword?.errors?.['required'] && ConfirmPassword?.invalid && ConfirmPassword?.touched">password is required</small>
                         <br>
-                        <small class="text-danger" *ngIf="ConfirmPassword?.errors?.['matching']">password must be matched</small>
-                          </div>
+                          <small class="text-danger" *ngIf="registerationForm?.errors?.['misMatch']">password must be matched</small>
 
                           
                     </div>

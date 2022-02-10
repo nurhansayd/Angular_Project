@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { matchValidator } from '../password.validator';
+import { passwordValidator } from '../password.validator';
 import { RegisterService } from '../Services/register.service';
 import { User } from '../user';
 
@@ -20,15 +20,10 @@ export class RegisterComponent implements OnInit {
   registerationForm = this.fb.group({
     username: ['',[Validators.required, Validators.pattern("^[A-Za-z]*$")]],
     email: ['',[Validators.required, Validators.email]],
-    password:['', [
-      Validators.required,
-      matchValidator('confirmPassword', true)
-    ]],
-    confirmPassword: ['',[
-      Validators.required,
-      matchValidator('password')
-    ]],
-  })
+    password:['', [Validators.required]],
+    confirmPassword: ['',[Validators.required]],
+  }, {validator:[passwordValidator] }
+   )
 
   get userName(){
     return this.registerationForm.get('username');

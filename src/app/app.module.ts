@@ -16,6 +16,7 @@ import { ProductWithoutDiscountComponent } from './product/product-without-disco
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component'
 import { AbstractControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotesComponent } from './notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AbstractControl, FormsModule, ReactiveFormsModule } from '@angular/form
     ProductWithoutDiscountComponent,
     LoginComponent,
     RegisterComponent,
+    NotesComponent,
 
   ],
   imports: [
